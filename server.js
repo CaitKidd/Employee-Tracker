@@ -1,8 +1,9 @@
 const mysql = require("mysql");
 const inquirer = require("inquirer");
 const cTable = require('console.table');
+// create the connection information for the sql database
 const connection = mysql.createConnection({
-  host: "local",
+  host: "localhost",
   port: 3306,
   user: "root",
   password: "root",
@@ -10,11 +11,14 @@ const connection = mysql.createConnection({
 });
 
 
+// connect to the mysql server and sql database
 connection.connect(function(err) {
   if (err) throw err;
+  // run the start function after the connection is made to prompt the user
   start();
 });
 
+// function which prompts the user for what action they should take
 function start() {
     inquirer
       .prompt({
@@ -32,8 +36,8 @@ function start() {
           "Exit"
         ]
       })
-
       .then(function(answer) {
+        // based on their answer, either call the bid or the post functions
         switch (answer.startQuestions) {
           case "View all employees":
             viewEmployees();
@@ -72,6 +76,7 @@ function viewEmployees() {
   connection.query("SELECT employee.id, employee.first_name, employee.last_name, role.title, department.names AS department, role.salary, CONCAT(manager.first_name, ' ', manager.last_name) AS manager FROM employee LEFT JOIN role on employee.role_id = role.id LEFT JOIN department on role.department_id = department.id LEFT JOIN employee manager on manager.id = employee.manager_id", function(err, res) {
     if (err) throw err;
 
+    // Log all results of the SELECT statement
     console.table(res);
     start();
   });
@@ -95,7 +100,9 @@ function viewManagers() {
   });
 }
 
+//function to handle posting new employees
 function addEmployees() {
+    // prompt for info about the item being put up for auction
     inquirer
       .prompt([
         {
@@ -104,12 +111,12 @@ function addEmployees() {
           message: "What is the employee's first and last name?"
         },
         {
-         name: "Manager",
+         name: "manager",
          type: "list",
-         message: "Who is the manager?",
+         message: "What is the employee's manager?",
          choices: [
-            "Ron Swanson",
-            "Leslie Knope"
+            "Michael Scott",
+            "Jan Levingston"
            ]
         }
       ]).then(function(answer) {
@@ -148,7 +155,7 @@ function addEmployees() {
     inquirer
       .prompt([
         {
-          name: "Role",
+          name: "role",
           type: "input",
           message: "What new role would you like to add?"
         }
@@ -158,7 +165,7 @@ function addEmployees() {
         inquirer
           .prompt([
             {
-              name: "Salary",
+              name: "salary",
               type: "input",
               message: "Enter new role salary"
             }
@@ -190,7 +197,7 @@ function addEmployees() {
     console.log('updating emp');
     inquirer
       .prompt({
-        name: "ID",
+        name: "id",
         type: "input",
         message: "Enter employee id",
       }).then(function (answer) {
