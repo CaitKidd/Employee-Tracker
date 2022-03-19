@@ -1,25 +1,24 @@
 {
-    "name": "employee_tracker",
+    "name": "employee-tracker",
     "version": "1.0.0",
-    "description": "",
-    "main": "server.js",
+    "description": "Employee Tracker",
+    "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "node server.js"
+      "test": "echo \"Error: no test specified\" && exit 1"
     },
     "repository": {
-        "type": "git",
-        "url": "git+https://github.com/CaitKidd/Employee-Tracker.git"
+      "type": "git",
+      "url": "git+https://github.com/CaitKidd/Employee-Tracker.git"
     },
-    "author": "",
+    "author": "Caitlyn Kidd",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/CaitKidd/Employee-Tracker/issues"
+      "url": "https://github.com/CaitKidd/Employee-Tracker/issues"
     },
     "homepage": "https://github.com/CaitKidd/Employee-Tracker#readme",
     "dependencies": {
-        "console.table": "0.10.0",
-        "inquirer": "8.2.1",
-        "mysql": "2.18.1"
+      "console.table": "^0.10.0",
+      "inquirer": "^7.2.0",
+      "mysql": "^2.18.1"
     }
-}
+  }
