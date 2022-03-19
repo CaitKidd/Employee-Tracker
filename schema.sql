@@ -13,3 +13,5 @@ salary DECIMAL,
 dept_id INTEGER NOT NULL,
 FOREIGN KEY (dept_id) REFERENCES departments(id)
 );
+
+);
