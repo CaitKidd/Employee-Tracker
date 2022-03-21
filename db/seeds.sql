@@ -1,3 +1,4 @@
+Use employees_DB
 INSERT INTO department (name) 
 VALUES ("Manager"), ("Sales"), ("Lead Sales"), ("Accounting"), ("Legal");
 
