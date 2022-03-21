@@ -17,6 +17,7 @@
     },
     "homepage": "https://github.com/CaitKidd/Employee-Tracker#readme",
     "dependencies": {
+        "npm": "^8.5.5",
       "console.table": "^0.10.0",
       "inquirer": "^7.2.0",
       "mysql": "^2.18.1"
