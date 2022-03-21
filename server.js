@@ -4,18 +4,11 @@ const cTable = require("console.table");
 
 const connection = mysql.createConnection({
   host: "localhost",
-
-  // Your port; if not 3306
   port: 3306,
-
-  // Your username
   user: "root",
-
-  // Your password
-  password: "caitlynk",
-  database: "employees_DB"
+  password: "",
+  database: "employees_db"
 });
-
 
 connection.connect(err => {
   if (err) throw err;
@@ -81,7 +74,6 @@ function selectAll() {
     });
   };
 
-// MySQL query to see table for View Department option
   function selectDepartments() {
     const query = `SELECT * FROM department`
     connection.query(query, (err, res) => {
@@ -131,7 +123,6 @@ function addDepartment() {
     });
 };
 
-// MySQL query and Inquirer prompt for Add Role option
 function addRole() {
     inquirer.prompt([{
         name: "title",
@@ -181,7 +172,6 @@ function addRole() {
   });
 };
 
-
 function addEmployee() {
     inquirer.prompt([{
         name: "first_name",
@@ -230,7 +220,6 @@ function addEmployee() {
     });
   });
 };
-
 
 function updateEmployeeRole() {
   inquirer.prompt([
