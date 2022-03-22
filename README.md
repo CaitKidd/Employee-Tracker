@@ -59,10 +59,12 @@ node app.js
 
 The main menu prompts the user to decide if he/she wants to Add, View, Update, Delete records in the Employee Tracker Database. After the selection, the user will be prompted based on their selection.
 
+``` 
 ADD --> Department, Role, Employee, Exit
 VIEW --> All Departments, All Roles, All Employees, Employees by Manager, Department Salaries
 UPDATE --> Update Employee roles, Update Employee Managers
 DELETE --> Delete Department, Delete Role, Delete Employee
+``` 
 
 ## Contributing
 :octocat: [Caitlyn Kidd](https://github.com/caitkidd)
